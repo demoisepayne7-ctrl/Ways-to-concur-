@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WAYS TO CONCUR — A-B-C Strategy Beta</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body><main class="wrap">
+<header class="hero"><p class="eyebrow">EMPIRE WARFARE • BETA 0.4</p><h1>WAYS TO CONCUR</h1><p>Build your council. Shape history. Command your armies.</p></header>
+<section id="setup" class="panel">
+<div class="headrow"><div><p class="eyebrow">FOUR PILLARS OF POWER</p><h2>Build your team</h2></div><label class="mode">Team mode<select id="mode"><option value="fixed">Fixed — one specialist per role</option><option value="flexible">Flexible — four distinct pillars</option></select></label></div>
+<div class="picks">
+<div><label for="culture">🎤 Cultural influencer</label><select id="culture"></select><small id="cultureInfo"></small></div>
+<div><label for="politics">🏛️ Political / military leader</label><select id="politics"></select><small id="politicsInfo"></small></div>
+<div><label for="economy">💰 Economic specialist</label><select id="economy"></select><small id="economyInfo"></small></div>
+<div><label for="empire">🌍 Empire / faction</label><select id="empire"></select><small id="empireInfo"></small></div>
+</div>
+<div class="scenario"><label for="campaign">Historical campaign</label><select id="campaign">
+<option value="frontier">Frontier of Crowns — introductory campaign</option>
+<option value="rome">Rise of Rome — Mediterranean campaign</option>
+<option value="mali">Golden Routes of Mali — trade and influence</option>
+<option value="mongol">Mongol Expansion — mobility and command</option>
+<option value="modern">Modern World Order — industry and diplomacy</option>
+<option value="living">The Living World — global campaign</option>
+</select><small id="campaignInfo">A fictionalized strategy scenario inspired by historical eras. It is not a historical simulation.</small></div>
+<div class="summary"><div><small>YOUR COUNCIL</small><h3 id="teamTitle">Choose your four pillars</h3><p id="teamSummary">Each role contributes to your empire's strategy.</p></div><div class="synergy">Synergy<strong id="synergy">—</strong></div></div>
+<button id="launch">Launch campaign →</button>
+</section>
+<section id="game" class="hidden">
+<div class="gamehead"><div><p class="eyebrow">CAMPAIGN IN PROGRESS</p><h2 id="campaignTitle">Your Empire</h2><p id="teamLine" class="muted"></p></div><div class="topbuttons"><button id="endTurn">End turn →</button><button id="changeTeam" class="alt">New campaign</button></div></div>
+<div id="resources" class="resources"></div>
+<div class="columns">
+<div class="leftcol">
+<section class="panel"><h3>🗺️ Territory map</h3><p class="muted">Choose a territory to inspect it. Attacks require a connected friendly territory with troops to spare.</p><div id="map" class="map"></div><div class="maplegend"><span><i class="you"></i>Your empire</span><span><i class="enemy"></i>Rival territory</span><span><i class="neutral"></i>Neutral territory</span></div></section>
+<section class="panel"><h3>🛡️ Army command</h3><p id="territoryInfo" class="muted">Select a territory.</p><div class="army-grid">
+<label>Unit type<select id="unitType"><option value="infantry">Infantry — balanced</option><option value="cavalry">Cavalry — attack bonus</option><option value="archers">Archers — defense support</option></select></label>
+<label>Battle tactic<select id="tactic"><option value="balanced">Balanced stance</option><option value="blitz">Blitz — high risk, high reward</option><option value="fortify">Fortify — stronger defense</option><option value="ambush">Ambush — intelligence advantage</option></select></label>
+</div><div class="actionrow"><button id="reinforce">Recruit unit · 20 gold + 2 manpower</button><button id="attack" class="alt">Attack territory</button></div>
+<div class="actionrow"><button id="councilAbility">✨ Use council ability</button><span id="abilityStatus" class="muted">Council ability ready.</span></div>
+<div class="builds">
+<button data-build="farm">🌾 Build farm <small>25 gold · +2 food/turn</small></button>
+<button data-build="market">🏪 Build market <small>35 gold · +3 gold/turn</small></button>
+<button data-build="barracks">🛡️ Build barracks <small>40 gold · +1 manpower/turn</small></button>
+<button data-build="culture">🎭 Cultural center <small>30 gold · +2 influence/turn</small></button>
+</div><div id="armyStatus" class="status">Recruit, choose tactics, and protect your supply lines.</div></section>
+</div>
+<div class="rightcol">
+<section class="panel"><h3>🤝 Diplomacy table</h3><p class="muted">Build trust, trade resources, or pressure rivals. AI factions evaluate your relative strength and current relations.</p><label for="diplomat">Rival faction</label><select id="diplomat"><option value="ai">Rival Council</option><option value="league">Eastern League</option></select><div class="diplomacy">
+<button id="pact">Propose non-aggression pact <small>Costs 10 influence</small></button>
+<button id="alliance">Form strategic alliance <small>Costs 15 influence · 4 turns</small></button>
+<button id="spy">Run intelligence operation <small>Costs 5 intelligence</small></button>
+<button id="trade">Trade 15 gold for 10 influence</button>
+<button id="tribute">Demand tribute <small>Requires a stronger position</small></button>
+<button id="breakPact" class="alt">Break pact</button>
+</div><div id="diplomacyStatus" class="status">No active agreement.</div></section>
+<section class="panel"><h3>🎯 Objectives & achievements</h3><div id="objectives" class="objectives"></div><div id="achievements" class="achievements">No achievements yet.</div></section>
+<section class="panel"><h3>📊 Empire overview</h3><div id="overview" class="overview"></div><h4>Your council bonuses</h4><ul id="bonuses"></ul><h4>Rival intelligence</h4><div id="aiStatus" class="status">Rivals assess threats and opportunities each turn.</div></section>
+<section class="panel"><h3>📜 Campaign log</h3><div id="log" class="log" aria-live="polite">Choose your team and begin.</div></section>
+</div></div>
+</section>
+<footer>Prototype note: single-player 2D strategy beta. Historical campaigns are fictionalized scenarios; character and faction abilities are gameplay abstractions, not claims about real-world conduct.</footer>
+</main><script src="/game.js"></script></body></html>
